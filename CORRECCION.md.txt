@@ -1,0 +1,17 @@
+# Corrección de mala práctica en ClimApp
+
+## ¿Qué mala práctica identificaste?
+Se identificó la inclusión (o riesgo de inclusión) de una clave API directamente en el código fuente del cliente (HTML/JavaScript), al utilizar servicios como OpenWeatherMap.
+
+## ¿Por qué es considerada una mala práctica?
+Porque exponer la API Key en el código cliente permite que cualquier usuario con acceso al navegador vea la clave. Esto puede derivar en abuso del servicio, vulnerabilidades de seguridad y costos innecesarios para el propietario de la cuenta.
+
+## ¿Cómo la solucionaste?
+- Se movió la clave a un archivo `.env`.
+- Se accede a ella mediante variables de entorno en el entorno de desarrollo.
+- Se agregó el archivo `.env` al archivo `.gitignore` para evitar su inclusión en el control de versiones.
+
+## ¿Qué beneficios aporta tu solución?
+- Mayor seguridad: la clave no está expuesta públicamente.
+- Escalabilidad: permite administrar fácilmente claves diferentes por entorno (dev, prod).
+- Buenas prácticas de desarrollo: código más limpio y profesional.
